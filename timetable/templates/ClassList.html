@@ -2,28 +2,32 @@
     <thead>
         <tr>
             <th>전공/교양</th>
-            <th>학점</th>
+            <th>학수번호</th>
             <th>과목명</th>
             <th>교수</th>
             <th>요일</th>
             <th>시작시간</th>
             <th>종료시간</th>
             <th>강의실</th>
-            <th>학수번호</th>
+            <th>강의평</th>
+            <th>학점</th>
+            
         </tr>
     </thead>
     <tbody>
         {% for class in classes %}
         <tr>
             <td>{{ class.major }}</td>
-            <td>{{ class.credit }}</td>
+            <td>{{ class.class_id }}</td>
             <td>{{ class.name }}</td>
             <td>{{ class.professor }}</td>
             <td>{{ class.day }}</td>
             <td>{{ class.start_time }}</td>
             <td>{{ class.end_time }}</td>
             <td>{{ class.classroom }}</td>
-            <td>{{ class.class_id }}</td>
+            <td><a href="#">View</a></td>
+            <td>{{ class.credit }}</td>
+            
         </tr>
         {% endfor %}
     </tbody>
