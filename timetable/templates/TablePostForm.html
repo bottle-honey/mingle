@@ -1,0 +1,5 @@
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_table}}
+    <input type="submit" value="시간표 등록">
+</form>

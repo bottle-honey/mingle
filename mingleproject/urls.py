@@ -18,5 +18,6 @@ from django.urls import path
 from timetable import views as timetable_views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('timetable/', timetable_views.timetable),
+    path('timetable/', timetable_views.timetable, name='timetable'),
+    path('timetablecreate/', timetable_views.timetablecreate, name='timetablecreate'),
 ]
