@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('timetable/', timetable_views.timetable, name='timetable'),
     path('timetablecreate/', timetable_views.timetablecreate, name='timetablecreate'),
+    path('classcreate/', timetable_views.classcreate, name='classcreate'),
+    path('classlist/', timetable_views.classsearch, name='classlist'),
 ]

@@ -7,10 +7,13 @@ class Table(models.Model):
     name = models.CharField(max_length=200)
 
 class Class(models.Model):
+    major = models.CharField(max_length=15, default='교양')
+    credit = models.IntegerField(default=2, null=True)
     name = models.CharField(max_length=200)
     professor = models.CharField(max_length=20)
-    day = models.CharField(max_length=5)
-    start_time = models.IntegerField()
-    end_time = models.IntegerField()
-    classroom = models.CharField(max_length=20)
-    class_id = models.IntegerField(primary_key=True)
+    day = models.CharField(max_length=3)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    classroom = models.CharField(max_length=20, null=True)
+    class_id = models.CharField(max_length=10, primary_key=True)
+
