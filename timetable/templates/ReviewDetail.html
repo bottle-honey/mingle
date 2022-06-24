@@ -1,0 +1,7 @@
+<h1>강의평 페이지</h1>
+
+{% for review in review_detail.review_set.all %}
+{{class_detail.name}}
+{{review.assignment}}
+
+{% endfor %}

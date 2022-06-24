@@ -25,7 +25,7 @@
             <td>{{ class.start_time }}</td>
             <td>{{ class.end_time }}</td>
             <td>{{ class.classroom }}</td>
-            <td><a href="#">View</a></td>
+            <td><a href="{% url 'reviewdetail' class.class_id %}">View</a></td>
             <td>{{ class.credit }}</td>
             
         </tr>

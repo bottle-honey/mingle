@@ -1,5 +1,5 @@
 from django import forms
-from .models import Table, Class
+from .models import Review, Table, Class
 
 class TableForm(forms.ModelForm):
     class Meta:
@@ -67,3 +67,9 @@ class ClassForm(forms.ModelForm):
                     'placeholder' : '학수번호',
                     'rows' : 3
             }
+            
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        # ??
+        fields = '__all__'

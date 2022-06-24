@@ -22,4 +22,5 @@ urlpatterns = [
     path('timetablecreate/', timetable_views.timetablecreate, name='timetablecreate'),
     path('classcreate/', timetable_views.classcreate, name='classcreate'),
     path('classlist/', timetable_views.classsearch, name='classlist'),
+    path('reviewdetail/<int:class_id>', timetable_views.classreview, name='reviewdetail')
 ]
