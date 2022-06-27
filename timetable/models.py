@@ -18,11 +18,12 @@ class Class(models.Model):
     class_id = models.CharField(max_length=10, primary_key=True)
 
 class Review(models.Model):
-    class_id = models.ForeignKey("Class", on_delete=models.CASCADE)
+    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
     semester = models.CharField(max_length=15,default='22-1 semester')
     assignment = models.CharField(max_length=10)
     groupmeeting = models.CharField(max_length=10)
     grade = models.CharField(max_length=15)
     attendence = models.CharField(max_length=15)
     numberoftests = models.CharField(max_length=15)
+    body = models.TextField(default='내용')
     

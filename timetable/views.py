@@ -40,17 +40,21 @@ def classfiltering(attribute):
 
 # 특정 과목 강의평 출력
 def classreview(request,class_id):
-    review_detail = get_object_or_404(Class,pk=class_id)
+    # review_detail = get_object_or_404(Class,pk=class_id)
+    review_detail = Review.objects.filter(class_id=class_id)
     class_detail = get_object_or_404(Class,pk=class_id)
     review_form = ReviewForm()
     return render(request, 'ReviewDetail.html',{'review_detail':review_detail,'review_form':review_form,'class_detail':class_detail})
 
 # 강의평 추가
 
-def new_review(request, class_id):
-    filled_form = ReviewForm(request.POST)
-    if filled_form.is_valid():
+
+def create_review(request, class_id):
+    filled_form = ReviewForm(request.POST) #post 요청으로 넘어온 form data들을 CommentForm양식에 담아서 filled_form으로 저장
+
+    if filled_form.is_valid():    
         finished_form = filled_form.save(commit=False)
-        finished_form.post = get_object_or_404(Review,pk=class_id)
+        finished_form.post = get_object_or_404(Class, pk=class_id)
         finished_form.save()
+    
     return redirect('reviewdetail', class_id)

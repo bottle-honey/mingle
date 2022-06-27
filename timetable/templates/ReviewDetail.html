@@ -1,7 +1,15 @@
 <h1>강의평 페이지</h1>
-
-{% for review in review_detail.review_set.all %}
-{{class_detail.name}}
-{{review.assignment}}
-
+{{ class_detail.name }}
+<br/>
+{% for review in review_detail %}
+<!-- {{class_detail}} -->
+    {{review.semester}}
+    {{review.body}}
+    <br/>
 {% endfor %}
+
+<form action="{% url 'create_review' class_detail.class_id %}" method="POST">
+    {% csrf_token %}
+    {{ review_form }}
+    <input type="submit" value="강의평 추가">
+</form>

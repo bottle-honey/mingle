@@ -22,6 +22,8 @@ urlpatterns = [
     path('timetablecreate/', timetable_views.timetablecreate, name='timetablecreate'),
     path('classcreate/', timetable_views.classcreate, name='classcreate'),
     path('classlist/', timetable_views.classsearch, name='classlist'),
-    path('reviewdetail/<int:class_id>', timetable_views.classreview, name='reviewdetail'),
+
+    path('reviewdetail/<str:class_id>', timetable_views.classreview, name='reviewdetail'),
+    path('create_review/<str:class_id>', timetable_views.create_review , name="create_review"),
     path('chat/', include('chat.urls')),
 ]

@@ -21,7 +21,7 @@ class ClassForm(forms.ModelForm):
         fields = '__all__'
         
         def __init__(self, *args, **kwargs):
-            super(TableForm, self).__init__(*args, **kwargs)
+            super(ClassForm, self).__init__(*args, **kwargs)
             self.fields['major'].widget.attrs = {
                 'class' : 'form-control',
                 'placeholder' : '전공',
@@ -71,5 +71,5 @@ class ClassForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        # ??
         fields = '__all__'
+    
