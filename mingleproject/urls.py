@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from timetable import views as timetable_views
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,5 +22,6 @@ urlpatterns = [
     path('timetablecreate/', timetable_views.timetablecreate, name='timetablecreate'),
     path('classcreate/', timetable_views.classcreate, name='classcreate'),
     path('classlist/', timetable_views.classsearch, name='classlist'),
-    path('reviewdetail/<int:class_id>', timetable_views.classreview, name='reviewdetail')
+    path('reviewdetail/<int:class_id>', timetable_views.classreview, name='reviewdetail'),
+    path('chat/', include('chat.urls')),
 ]

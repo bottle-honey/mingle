@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'timetable'
+    'timetable',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mingleproject.wsgi.application'
-
+ASGI_APPLICATION = 'mingleproject.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
