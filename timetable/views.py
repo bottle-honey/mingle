@@ -1,5 +1,6 @@
+from unittest.util import safe_repr
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import TableForm, ClassForm, ReviewForm
+from .forms import TableForm, ClassForm, ReviewForm, SearchForm
 from .models import Table, Class, Review
 
 # 시간표 페이지 
@@ -28,10 +29,20 @@ def classcreate(request):
         form = ClassForm()
     return render(request, 'ClassPostForm.html',{'form':form})
 
-# 과목 리스트 추가
+# 과목 목록 출력
 def classsearch(request):
-    classes = Class.objects.filter().order_by('name')
-    return render(request, 'ClassList.html', {'classes':classes})
+    major = Class.objects.distinct().values_list('major',flat=True)
+    time = Class.objects.distinct().values_list('start_time',flat=True)
+    if request.method=='POST':
+        form = SearchForm(request.POST)
+        searchword = request.POST.get('search')
+        if form.is_valid():
+           classes = Class.objects.filter(name__contains=searchword)
+    else:
+        form = SearchForm()
+        classes = Class.objects.filter().order_by('name')
+        
+    return render(request, 'ClassList.html', {'classes':classes,'major':major,'time':time,'form':form})
 
 # 과목 필터링
 def classfiltering(attribute):

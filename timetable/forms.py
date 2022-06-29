@@ -1,3 +1,6 @@
+from logging import PlaceHolder
+from tkinter.tix import MAX
+from urllib.parse import MAX_CACHE_SIZE
 from django import forms
 from .models import Review, Table, Class
 
@@ -83,4 +86,5 @@ class ReviewForm(forms.ModelForm):
             }
             
        
-        
+class SearchForm(forms.Form):
+    search = forms.CharField(label='과목명으로 검색',max_length=100)

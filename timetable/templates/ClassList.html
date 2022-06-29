@@ -1,8 +1,35 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
+    <!-- 필터 -->
     <div>
-        필터 들어갈 부분
+        <form action="">
+            <h2>전공/영역</h2>
+            <select name="">
+                {% for m in major %}
+                <option value={{m}}>{{m}}</option>
+                {% endfor %}
+            </select>
+            
+        </form>
+        <form action="">
+            <h2>시간</h2>
+            <select name="">
+                {% for t in time %}
+                <option value={{t}}>{{t}}</option>
+                {% endfor %}
+            </select>
+        </form>
+      
+       
     </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="검색"><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+   </form>
     <thead>
         <tr>
             <th>전공/교양</th>
