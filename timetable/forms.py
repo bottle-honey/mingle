@@ -68,8 +68,19 @@ class ClassForm(forms.ModelForm):
                     'rows' : 3
             }
             
+        
+
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = '__all__'
-    
+        def __init__(self, *args, **kwargs):
+            super(ReviewForm, self).__init__(*args, **kwargs)
+            self.fields['body'].widget.attrs = {
+                'class' : 'form-control',
+                'placeholder' : 'Please write a general review of this lecture',
+                'rows' : 3
+            }
+            
+       
+        
